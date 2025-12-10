@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brown: #7B2B2C;
+    --gold: #CE8829;
+    --light: #FFFEE9;
+    --dark: #32010E;
+}
+
+body {
+    font-family: 'Amarante', serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100vh;
+    background-color: var(--brown);
+    overflow: hidden;
+    z-index: 1;
+
+    h1 {
+        font-size: 8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        text-align: center;
+        color: var(--light);
+        margin-bottom: -3rem;
+    }
+
+    .sunset {
+        position: relative;
+        margin-inline: auto;
+
+        .sun {
+            width: 45rem;
+            aspect-ratio: 1/1;
+            background-color: var(--gold);
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+            animation-name: sunset;
+            animation-duration: 1ms;
+            animation-timeline: scroll(root);
+        }
+
+        .mountains {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero_image {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+
+            .horse {
+                position: absolute;
+                bottom: 65%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .hill {
+                transform: translateX(-20%)
+            }
+        }
+
+
+    }
+
+    .grain {
+        position: absolute;
+        bottom: 0;
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+    }
+}
+
+.next_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    .beer {
+        margin-inline: auto;
+        width: 20rem;
+        aspect-ratio: 1/1;
+        transform-origin: top center;
+        animation-name: beer;
+        animation-duration: 1ms;
+        animation-timeline: scroll(root);
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        #splash {
+            position: absolute;
+            width: 300%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            animation-name: splash;
+            animation-duration: 1ms;
+            animation-timeline: scroll(root);
+        }
+    }
+}
+
+@keyframes sunset {
+    to {
+        scale: 0;
+    }
+}
+
+@keyframes beer {
+    from {
+        scale: 2;
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes splash {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+        scale: 1.5
+    }
+
+}
