@@ -11,6 +11,10 @@
     --gold: #CE8829;
     --light: #FFFEE9;
     --dark: #32010E;
+
+    a {
+        cursor: pointer;
+    }
 }
 
 body {
@@ -28,7 +32,52 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3rem;
+    z-index: 1000;
+    /* background-color: #000; */
+
+    .logo {
+        padding: 1rem;
+        padding-top: 0;
+        background-color: var(--brown);
+        width: fit-content;
+        border-bottom-left-radius: 100vw;
+        border-bottom-right-radius: 100vw;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        padding: 1rem;
+        height: fit-content;
+
+        ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+
+            &.pages {
+                font-size: 1.5rem;
+            }
+
+            li>a {
+                color: var(--gold);
+
+                &:hover {
+                    color: var(--light);
+                }
+
+                /* text-decoration: none; */
+            }
+        }
+    }
 }
 
 .hero {
@@ -41,12 +90,12 @@ header {
     z-index: 1;
 
     h1 {
-        font-size: 8rem;
+        font-size: 6rem;
         text-transform: uppercase;
         letter-spacing: 0.5rem;
         text-align: center;
         color: var(--light);
-        margin-bottom: -3rem;
+        margin-bottom: -2.5rem;
     }
 
     .sunset {
@@ -54,7 +103,7 @@ header {
         margin-inline: auto;
 
         .sun {
-            width: 45rem;
+            width: 40rem;
             aspect-ratio: 1/1;
             background-color: var(--gold);
             border-radius: 50% 50% 0 0;
