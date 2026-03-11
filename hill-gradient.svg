@@ -1,0 +1,10 @@
+<svg width="2152" height="1288" viewBox="0 0 2152 1288" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="hill-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#32010E" />
+            <stop offset="10%" stop-color="#32010E" />
+            <stop offset="60%" stop-color="transparent" />
+        </linearGradient>
+    </defs>
+    <path d="M1066.64 3.48966L0 370.376V1287.48H2152V660.48L1353.85 274.731C1279.66 238.872 1219.13 179.865 1181.39 106.605L1144.35 34.7028C1129.8 6.44201 1096.7 -6.85023 1066.64 3.48966Z" fill="url(#hill-gradient)"/>
+</svg>

@@ -17,8 +17,10 @@ body {
     font-family: 'Amarante', serif;
     font-weight: 400;
     font-style: normal;
-    background-color: var(--light);
+    background-color: var(--brown);
     color: var(--dark);
+    /* overflow-x: hidden; */
+    overflow-x: clip;
 }
 
 header {
@@ -35,8 +37,7 @@ header {
     flex-direction: column;
     justify-content: end;
     height: 100vh;
-    background-color: var(--brown);
-    overflow: hidden;
+    /* background-color: var(--brown); */
     z-index: 1;
 
     h1 {
@@ -78,15 +79,25 @@ header {
             z-index: 100;
 
             .horse {
-                position: absolute;
-                bottom: 65%;
-                left: 50%;
-                transform: translateX(-50%);
+                /* position: absolute; */
+                position: relative;
+                transform: translateY(-30%);
             }
 
-            .hill {
-                transform: translateX(-20%)
-            }
+            /* .hill {
+                position: absolute;
+                bottom: -215%;
+                left: 51%;
+                transform: translateX(-50%);
+                z-index: 1000;
+
+                path {
+                    fill: url(#hill-gradient);
+                    animation-name: color-switch;
+                    animation-duration: 1ms;
+                    animation-timeline: scroll(root);
+                }
+            } */
         }
 
 
@@ -94,49 +105,82 @@ header {
 
     .grain {
         position: absolute;
-        bottom: 0;
+        bottom: -30px;
+
 
         &.left {
-            left: 0;
+            left: -40px;
         }
 
         &.right {
-            right: 0;
+            right: -40px;
+            transform: rotate(-90deg);
         }
     }
 }
 
 .next_section {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+    position: relative;
+    height: 100vh;
+    z-index: 20;
+    --_hill-offset: 200px;
 
-    .beer {
-        margin-inline: auto;
-        width: 20rem;
-        aspect-ratio: 1/1;
-        transform-origin: top center;
-        animation-name: beer;
-        animation-duration: 1ms;
-        animation-timeline: scroll(root);
+    .mask-container {
+        position: relative;
+        mask-image: url(hill.svg);
+        mask-size: cover;
+        mask-position: center top;
+        mask-repeat: no-repeat;
+        height: calc(100vh + var(--_hill-offset));
+        top: calc(var(--_hill-offset) * -1);
+        background-color: var(--light);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-
-        #splash {
-            position: absolute;
-            width: 300%;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            animation-name: splash;
+        .beer {
+            position: relative;
+            margin-inline: auto;
+            width: 20rem;
+            aspect-ratio: 1/1;
+            transform-origin: top center;
+            animation-name: beer;
             animation-duration: 1ms;
             animation-timeline: scroll(root);
+            display: flex;
+            align-items: end;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+
+            #splash {
+                position: absolute;
+                width: 300%;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: -1;
+                animation-name: splash;
+                animation-duration: 1ms;
+                animation-timeline: scroll(root);
+            }
         }
     }
+
+    .hill {
+        position: absolute;
+        inset: 0;
+        top: calc(var(--_hill-offset) * -1);
+        background-image: url(hill-gradient.svg);
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+
+
 }
 
 @keyframes sunset {
@@ -162,4 +206,14 @@ header {
         scale: 1.5
     }
 
+}
+
+@keyframes color-switch {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
